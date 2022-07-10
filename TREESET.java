@@ -75,21 +75,21 @@ public class TREESET<E> {
      * Q: len_new = index(fromElement) - index(toElement)
      */
     public TREESET<E> subSet(E fromElement, boolean fromInclusive, E toElement,   boolean toInclusive) {
-        return new TREESET<>(set.subSet(fromElement, fromInclusive, toElement, toInclusive).collection());
+        return new TREESET<>(set.subList(fromElement, fromInclusive, toElement, toInclusive).collection());
     }
     /**
      * P: len > 0
      * Q: len_new = index(toElement)
      */
     public TREESET<E> headSet(E toElement, boolean inclusive) {
-        return new TREESET<>(set.subSet(set.get(0), true, toElement, inclusive).collection());
+        return new TREESET<>(set.subList(set.get(0), true, toElement, inclusive).collection());
     }
     /**
      * P: len > 0
      * Q: len_new = set.size() - index(toElement)
      */
     public TREESET<E> tailSet(E fromElement, boolean inclusive) {
-        return new TREESET<>(set.subSet(set.get(0), true, set.get(set.size()), inclusive).collection());
+        return new TREESET<>(set.subList(set.get(0), true, set.get(set.size()), inclusive).collection());
     }
     public TREESET<E> subSet(E fromElement, E toElement) {
         return subSet(fromElement, true, toElement, false);
